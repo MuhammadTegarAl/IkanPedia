@@ -15,19 +15,7 @@
     <div class="row">
         <div class="card col-8">
             
-            <h2>Kelipatan Uang</h2>
-            <div class="row">
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn500">500</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn1k">1000</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn2k">2000</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn5k">5000</button></div>
-            </div><br>
-            <div class="row">
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn10k">10000</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn20k">20000</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn50k">50000</button></div>
-                <div class="col-3 d-grid gap-2"><button class="btn btn-primary" id="btn100k">100000</button></div>                
-            </div>
+            
             <h2>Daftar Barang</h2>
             <div class="row">
                 <div class="col-3">
@@ -128,34 +116,43 @@
                         </div>
                     </div>    
                 </div>
-            </div><br>            
+            </div><br>
             
-            <h2>Additional</h2>
-            <div class="row">
-                <div class="col-6 text-center d-grid gap-2"><button class="btn btn-secondary" id="btnAngkot">Transportasi - Angkot</button></div>
-                <div class="col-6 text-center d-grid gap-2"><button class="btn btn-secondary" id="btnPermen">Permen</button></div>
-            </div><br><br>
+           
             
-            <div class="row">
-                <div class="col-2"><h5>Total Belanja</h5></div>
-                <div class="col-10">
-                    <form action="">
-                        <input type="text" class="form-control" id="totalBelanja">
-                    </form>
-                </div>
-            </div>
+            
         </div>
         <div class="col-4 card">
             <h2>Ringkasan Belanja</h2>
-            
             <ul id="cetak"></ul>
-            <div class="row">Total : <span id="total"></span></div>
+            Total : <span id="total"></span>
+            <button id="btnClear" class="btn-danger"><i class="fas fa-trash-alt"></i> Clear Cart</button><br><br>
+            <h2>Tambahkan Diskon</h2>
             <form class="text-center" action="">
-                <input class="form-control" id="hasil" type="text">
+                <input class="form-control" id="inputDiskon" type="text" placeholder="Masukkan nominal diskon...">
             </form>
+            <button id="btnDiskon" class="btn btn-primary"><i class="fas fa-percent"></i> Add Discount</button><br><br>
+            <h2>Pembayaran</h2>
+            <form action="">
+                <input type="text" class="form-control" id="totalCheckout" placeholder="Masukkan nominal pembayaran...">
+            </form>
+            <button id="btnCheckout" class="btn btn-warning"><i class="fas fa-shopping-cart"></i> Checkoout</button>
+            <h2>Kelipatan Uang</h2>
             <div class="row">
-                    <button id="btnClear" class="col-6 btn-danger"><i class="fas fa-trash-alt"></i> Clear Cart</button>
-                    <button class="col-6 btn btn-warning"><i class="fas fa-shopping-cart"></i> Checkoout</button>
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn500">500</button></div>
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn1k">1000</button></div>
+            </div><br>
+            <div class="row">
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn2k">2000</button></div>
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn5k">5000</button></div>
+            </div><br>
+            <div class="row">
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn10k">10000</button></div>
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn20k">20000</button></div>
+            </div><br>
+            <div class="row">
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn50k">50000</button></div>
+                <div class="col-6 d-grid gap-2"><button class="btn btn-primary" id="btn100k">100000</button></div>                
             </div>
         </div>
     </div>

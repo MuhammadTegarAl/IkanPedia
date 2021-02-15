@@ -1,5 +1,3 @@
-const hasil = document.getElementById('hasil')
-const totalBelanja = document.getElementById('totalBelanja')
 const btn500 = document.getElementById('btn500')
 const btn1k = document.getElementById('btn1k')
 const btn2k = document.getElementById('btn2k')
@@ -8,21 +6,12 @@ const btn10k = document.getElementById('btn10k')
 const btn20k = document.getElementById('btn20k')
 const btn50k = document.getElementById('btn50k')
 const btn100k = document.getElementById('btn100k')
-const btnAngkot = document.getElementById('btnAngkot')
-const btnPermen = document.getElementById('btnPermen')
-const btnSum = document.getElementById('btnSum')
-const btnClear = document.getElementById('btnClear')
 
-hasil.value=0
-totalBelanja.value=0
 
 
 function totalQty(x){
     return x+=1
 }
-
-
-
 
 let keranjang=[]
 function searchKeranjang(nama,qty,harga){
@@ -62,8 +51,81 @@ function listKeranjang(){
         document.getElementById("cetak").appendChild(text)
     }
     document.getElementById('total').innerHTML=total
+    return total
 }
+const inputDiskon = document.getElementById('inputDiskon')
+inputDiskon.value=0
 
+const btnDiskon = document.getElementById('btnDiskon')
+btnDiskon.addEventListener('click',function(e){
+    e.preventDefault
+    struk('Diskon',-inputDiskon.value,1)
+})
+const btnClear = document.getElementById('btnClear')
+btnClear.addEventListener('click',function(e){
+    e.preventDefault()
+    document.getElementById("cetak").innerHTML="";
+    document.getElementById('total').innerHTML=0
+    keranjang=[]  
+})
+
+const totalCheckout = document.getElementById('totalCheckout')
+totalCheckout.value = 0
+function proses(val){
+if(totalCheckout.value==0)
+        totalCheckout.value=''
+    totalCheckout.value+=val
+}
+btn500.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+500)
+  })
+  btn1k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+1000)
+  })
+  btn2k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+2000)
+  })
+  btn5k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+5000)
+  })
+  btn10k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+10000)
+  })
+  btn20k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+20000)
+  })
+  btn50k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+50000)
+  })
+  btn100k.addEventListener('click',function(e){
+    e.preventDefault()
+    proses('+'+100000)
+  })
+
+  const btnCheckout = document.getElementById('btnCheckout')
+  btnCheckout.addEventListener('click',function(e){
+      e.preventDefault
+      listKeranjang()
+      console.log(listKeranjang())
+      let b = eval(totalCheckout.value) - listKeranjang()
+
+      if(b==0){
+          window.alert('Uang Pas')
+      }
+      else if(b>0){
+          window.alert('Kembalian anda sebesar '+b)
+      }
+      else{
+          window.alert('Uang anda kurang '+b)
+      }
+  })
 
 //=================Ikan-ikanan===========================================
 const qtyBandeng = document.getElementById('qtyBandeng')
@@ -158,57 +220,6 @@ addGurame.addEventListener('click',function(e){
 })
 
 
-btnClear.addEventListener('click',function(e){
-      e.preventDefault()
-      document.getElementById("cetak").innerHTML="";
-      document.getElementById('total').innerHTML=0
-      keranjang=[]
-      
-})
-btn500.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+500)
-})
-btn1k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+1000)
-})
-btn2k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+2000)
-})
-btn5k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+5000)
-})
-btn10k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+10000)
-})
-btn20k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+20000)
-})
-btn50k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+50000)
-})
-btn100k.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('+'+100000)
-})
 
 
-btnAngkot.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('-'+2000)
-    total('+'+2000)
-    struk('Angkot','Rp 2.000',totalQty(0))
-})
-btnPermen.addEventListener('click',function(e){
-    e.preventDefault()
-    proses('-'+500)
-    total('+'+500)
-    struk('Permen','Rp 500',totalQty(0))
-})
 
